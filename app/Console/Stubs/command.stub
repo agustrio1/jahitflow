@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}};
+
+use App\Console\BaseCommand;
+use App\Console\ConsoleIO;
+
+final class {{class}} extends BaseCommand
+{
+    public function signature(): string
+    {
+        return '{{commandName}}';
+    }
+
+    public function description(): string
+    {
+        return 'TODO: jelaskan command ini';
+    }
+
+    public function handle(array $args, ConsoleIO $io): int
+    {
+        // TODO: implementasi nyata. Jangan mencetak sukses palsu (aturan §5).
+        $io->success('{{commandName}} selesai.');
+
+        return 0;
+    }
+}

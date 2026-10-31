@@ -1,0 +1,26 @@
+# Lingkungan & kredensial
+.env
+
+# Dependency
+/vendor/
+composer.lock
+
+# Artifact runtime
+/storage/logs/*.log
+/storage/cache/*
+/storage/sessions/*.sess
+/storage/uploads/*
+!storage/logs/.gitkeep
+!storage/cache/.gitkeep
+!storage/sessions/.gitkeep
+!storage/uploads/.gitkeep
+
+# Hasil test
+/.phpunit.cache
+/phpunit.xml.bak
+
+# IDE & OS
+/.idea/
+/.vscode/
+Thumbs.db
+.DS_Store

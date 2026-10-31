@@ -1,0 +1,26 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}};
+
+use App\Core\Request;
+use App\Core\Response;
+use App\Core\View;
+
+/**
+ * Controller tipis: hanya merangkai data untuk view.
+ * Business logic milik Service; query milik Repository.
+ */
+final class {{class}}
+{
+    public function __construct(private readonly View $view)
+    {
+    }
+
+    public function index(Request $request): Response
+    {
+        // TODO: inject Service via constructor, panggil, lalu render.
+        return Response::html($this->view->render('home', ['title' => '{{class}}']));
+    }
+}

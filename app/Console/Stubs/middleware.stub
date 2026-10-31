@@ -1,0 +1,20 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}};
+
+use App\Core\Middleware;
+use App\Core\Request;
+use App\Core\Response;
+use Closure;
+
+final class {{class}} implements Middleware
+{
+    public function handle(Request $request, Closure $next): Response
+    {
+        // TODO: logika guard. Kembalikan Response untuk memotong,
+        // atau panggil $next($request) untuk meneruskan.
+        return $next($request);
+    }
+}

@@ -1,0 +1,29 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}};
+
+/**
+ * Entity data holder. TIDAK berisi query database maupun business logic —
+ * query ada di Repository, aturan ada di Service (aturan §4 DOC).
+ */
+final class {{class}}
+{
+    public function __construct(
+        public readonly int $id = 0,
+    ) {
+    }
+
+    /**
+     * Bangun entity dari satu baris hasil query.
+     *
+     * @param array<string, mixed> $row
+     */
+    public static function fromRow(array $row): self
+    {
+        return new self(
+            id: (int) ($row['id'] ?? 0),
+        );
+    }
+}

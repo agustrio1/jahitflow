@@ -1,0 +1,30 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}};
+
+/**
+ * Aturan validasi {{class}}.
+ *
+ * Independen dari HTTP supaya dapat diuji tanpa request (aturan §13 DOC).
+ * Dipakai oleh FormRequest / Service sebelum menulis data.
+ */
+final class {{class}}
+{
+    /**
+     * @param array<string, mixed> $data
+     * @return array<string, list<string>> error per field (kosong = valid)
+     */
+    public function validate(array $data): array
+    {
+        $errors = [];
+
+        // TODO: contoh
+        // if (trim((string) ($data['nama'] ?? '')) === '') {
+        //     $errors['nama'][] = 'Nama wajib diisi.';
+        // }
+
+        return $errors;
+    }
+}

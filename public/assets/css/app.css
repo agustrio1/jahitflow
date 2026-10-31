@@ -1,0 +1,1016 @@
+/* ==================================================================
+   JahitFlow — stylesheet inti (Fase 1)
+   Pendekatan: custom properties + komponen kecil berprefix jf-.
+   Arah desain §11 DOC: bersih, tegas, tanpa gradient/glassmorphism,
+   oranye-hijau minimal, warna aksen hanya teal + status.
+   ================================================================== */
+
+:root {
+    /* Warna dasar */
+    --jf-bg: #f6f7f9;
+    --jf-surface: #ffffff;
+    --jf-border: #e2e5ea;
+    --jf-text: #1f2937;
+    --jf-text-muted: #6b7280;
+
+    /* Brand */
+    --jf-navy: #1e3a5f;
+    --jf-teal: #0d9488;
+    --jf-teal-soft: #e6f4f2;
+
+    /* Status */
+    --jf-success: #15803d;
+    --jf-success-soft: #eaf5ee;
+    --jf-danger: #b91c1c;
+    --jf-danger-soft: #fbeaea;
+    --jf-warning: #b45309;
+    --jf-warning-soft: #fdf3e3;
+    --jf-info: #1d4ed8;
+    --jf-info-soft: #eaeffb;
+
+    /* Sistem */
+    --jf-radius: 8px;
+    --jf-shadow-sm: 0 1px 2px rgba(16, 24, 40, .05);
+    --jf-font: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
+    --jf-mono: 'Cascadia Mono', Consolas, monospace;
+}
+
+* { box-sizing: border-box; }
+
+html { font-size: 15px; }
+
+body.jf-body {
+    margin: 0;
+    font-family: var(--jf-font);
+    color: var(--jf-text);
+    background: var(--jf-bg);
+    line-height: 1.55;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ----------------- Topbar ----------------- */
+.jf-topbar {
+    background: var(--jf-surface);
+    border-bottom: 1px solid var(--jf-border);
+    padding: 0 20px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.jf-logo { display: block; height: 52px; width: auto; }
+
+.jf-env-badge {
+    font-size: .75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    color: var(--jf-text-muted);
+    border: 1px solid var(--jf-border);
+    border-radius: 999px;
+    padding: 2px 10px;
+}
+
+/* ----------------- Layout utama ----------------- */
+.jf-main { flex: 1; padding: 28px 0 40px; }
+
+.jf-container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.jf-page-head { margin-bottom: 18px; }
+
+.jf-page-title {
+    margin: 0;
+    font-size: 1.45rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+    color: var(--jf-navy);
+}
+
+.jf-footer {
+    border-top: 1px solid var(--jf-border);
+    padding: 14px 0;
+    font-size: .8rem;
+    color: var(--jf-text-muted);
+    background: var(--jf-surface);
+}
+
+/* ----------------- Card ----------------- */
+.jf-card {
+    background: var(--jf-surface);
+    border: 1px solid var(--jf-border);
+    border-radius: var(--jf-radius);
+    box-shadow: var(--jf-shadow-sm);
+    padding: 20px 22px;
+    margin-bottom: 18px;
+}
+
+.jf-card-title {
+    margin: 0 0 12px;
+    font-size: 1rem;
+    font-weight: 650;
+    color: var(--jf-navy);
+}
+
+/* ----------------- Table ----------------- */
+.jf-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .9rem;
+}
+
+.jf-table th {
+    text-align: left;
+    font-weight: 600;
+    color: var(--jf-text-muted);
+    font-size: .78rem;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--jf-border);
+}
+
+.jf-table td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--jf-border);
+    vertical-align: middle;
+}
+
+.jf-table tbody tr:last-child td { border-bottom: none; }
+
+/* ----------------- Badge ----------------- */
+.jf-badge {
+    display: inline-block;
+    font-size: .74rem;
+    font-weight: 650;
+    border-radius: 999px;
+    padding: 2px 10px;
+    letter-spacing: .02em;
+}
+
+.jf-badge--success { background: var(--jf-success-soft); color: var(--jf-success); }
+.jf-badge--danger  { background: var(--jf-danger-soft);  color: var(--jf-danger); }
+.jf-badge--warning { background: var(--jf-warning-soft); color: var(--jf-warning); }
+.jf-badge--info    { background: var(--jf-info-soft);    color: var(--jf-info); }
+
+/* ----------------- Flash ----------------- */
+.jf-flash {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    border-radius: var(--jf-radius);
+    padding: 10px 14px;
+    margin-bottom: 12px;
+    font-size: .9rem;
+    border: 1px solid transparent;
+}
+
+.jf-flash--success { background: var(--jf-success-soft); color: var(--jf-success); border-color: #c7e6d0; }
+.jf-flash--error   { background: var(--jf-danger-soft);  color: var(--jf-danger);  border-color: #f0c8c8; }
+.jf-flash--warning { background: var(--jf-warning-soft); color: var(--jf-warning); border-color: #f0dcb8; }
+.jf-flash--info    { background: var(--jf-info-soft);    color: var(--jf-info);    border-color: #ccd8f5; }
+
+.jf-flash-close {
+    background: none;
+    border: none;
+    font-size: 1.1rem;
+    line-height: 1;
+    cursor: pointer;
+    color: inherit;
+    opacity: .65;
+    padding: 0 2px;
+}
+
+/* ----------------- Form ----------------- */
+.jf-form .jf-field { margin-bottom: 14px; }
+
+.jf-label {
+    display: block;
+    font-size: .83rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--jf-text);
+}
+
+.jf-input {
+    width: 100%;
+    max-width: 380px;
+    padding: 9px 12px;
+    font: inherit;
+    color: var(--jf-text);
+    background: var(--jf-surface);
+    border: 1px solid var(--jf-border);
+    border-radius: 6px;
+}
+
+.jf-input:focus {
+    outline: 2px solid var(--jf-teal-soft);
+    border-color: var(--jf-teal);
+}
+
+.jf-btn {
+    display: inline-block;
+    font: inherit;
+    font-weight: 600;
+    border-radius: 6px;
+    padding: 9px 16px;
+    border: 1px solid var(--jf-border);
+    background: var(--jf-surface);
+    color: var(--jf-text);
+    cursor: pointer;
+}
+
+.jf-btn--primary {
+    background: var(--jf-teal);
+    border-color: var(--jf-teal);
+    color: #fff;
+}
+
+.jf-btn--primary:hover { filter: brightness(.95); }
+
+/* ----------------- Utilitas ----------------- */
+.jf-text-muted { color: var(--jf-text-muted); }
+
+.jf-link { color: var(--jf-teal); }
+
+/* ----------------- Error page ----------------- */
+.jf-error-card { text-align: center; padding: 44px 22px; }
+
+.jf-error-code {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--jf-navy);
+    margin: 0;
+    letter-spacing: -.02em;
+}
+
+.jf-error-headline { margin: 6px 0 10px; font-size: 1.1rem; }
+
+.jf-debug { text-align: left; margin-top: 18px; }
+
+.jf-debug-trace {
+    background: #0f172a;
+    color: #d8e3f0;
+    font-family: var(--jf-mono);
+    font-size: .78rem;
+    padding: 14px;
+    border-radius: 6px;
+    overflow: auto;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+/* ==================================================================
+   Fase 3 — Shell dashboard (sidebar + topbar), halaman login,
+   dropdown user, indikator HTMX. Desain B2B: bersih, tanpa gradient.
+   ================================================================== */
+
+/* Alpine: sembunyikan elemen sebelum di-init agar tidak "flash". */
+[x-cloak] { display: none !important; }
+
+.jf-skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--jf-navy);
+    color: #fff;
+    padding: 8px 14px;
+    z-index: 200;
+}
+.jf-skip:focus { left: 8px; }
+
+.jf-icon-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: none;
+    color: var(--jf-text);
+    cursor: pointer;
+}
+.jf-icon-btn:hover { background: var(--jf-bg); border-color: var(--jf-border); }
+
+/* ---- Shell ---- */
+.jf-app-shell { display: flex; min-height: 100vh; align-items: stretch; }
+
+.jf-sidebar {
+    width: 280px;
+    flex: 0 0 280px;
+    background: var(--jf-surface);
+    border-right: 1px solid var(--jf-border);
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.jf-sidebar-head {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: var(--jf-surface);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    border-bottom: 1px solid var(--jf-border);
+}
+
+.jf-sidebar-close { display: none; }
+
+.jf-nav { padding: 12px 12px 24px; }
+.jf-nav-section { margin-bottom: 20px; }
+
+.jf-nav-label {
+    margin: 0 10px 8px;
+    font-size: .68rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .07em;
+    color: var(--jf-text-muted);
+}
+
+.jf-nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    height: 38px;
+    padding: 0 12px;
+    border-radius: 8px;
+    color: var(--jf-text);
+    text-decoration: none;
+    font-size: .875rem;
+    font-weight: 500;
+    margin-bottom: 2px;
+    transition: background-color .15s ease, color .15s ease;
+}
+.jf-nav-item .jf-icon { flex: 0 0 20px; color: var(--jf-text-muted); }
+.jf-nav-item:hover { background: var(--jf-bg); }
+.jf-nav-item:focus-visible { outline: 2px solid var(--jf-teal); outline-offset: -2px; }
+
+.jf-nav-item.is-active {
+    background: var(--jf-teal-soft);
+    color: var(--jf-teal);
+    font-weight: 650;
+}
+.jf-nav-item.is-active .jf-icon { color: var(--jf-teal); }
+
+.jf-nav-item.is-disabled {
+    color: var(--jf-text-muted);
+    cursor: not-allowed;
+    opacity: .8;
+}
+.jf-nav-soon {
+    margin-left: auto;
+    font-style: normal;
+    font-size: .66rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: var(--jf-warning);
+    background: var(--jf-warning-soft);
+    border-radius: 999px;
+    padding: 1px 8px;
+}
+
+/* ---- Kolom utama ---- */
+.jf-app-col { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+.jf-main { display: flex; flex-direction: column; flex: 1; }
+.jf-app-body .jf-container { max-width: 1120px; width: 100%; }
+
+.jf-page-sub { margin: 4px 0 0; color: var(--jf-text-muted); font-size: .92rem; }
+
+/* ---- Topbar + user ---- */
+.jf-topbar { position: sticky; top: 0; z-index: 40; }
+.jf-topbar-left, .jf-topbar-right { display: flex; align-items: center; gap: 12px; }
+.jf-menu-toggle { display: none; }
+
+.jf-user { position: relative; }
+.jf-user-btn {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    padding: 5px 8px 5px 5px;
+    border: 1px solid var(--jf-border);
+    border-radius: 999px;
+    background: var(--jf-surface);
+    cursor: pointer;
+}
+.jf-user-btn:hover { background: var(--jf-bg); }
+
+.jf-avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--jf-navy);
+    color: #fff;
+    font-size: .78rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: .02em;
+}
+.jf-user-meta { display: flex; flex-direction: column; align-items: flex-start; line-height: 1.15; }
+.jf-user-name { font-size: .85rem; font-weight: 600; }
+.jf-user-role { font-size: .72rem; color: var(--jf-text-muted); }
+
+.jf-user-menu {
+    position: absolute;
+    right: 0;
+    top: calc(100% + 8px);
+    min-width: 210px;
+    background: var(--jf-surface);
+    border: 1px solid var(--jf-border);
+    border-radius: var(--jf-radius);
+    box-shadow: 0 8px 24px rgba(16, 24, 40, .12);
+    padding: 6px;
+    z-index: 60;
+}
+.jf-user-email { margin: 4px 8px 8px; font-size: .78rem; color: var(--jf-text-muted); word-break: break-all; }
+.jf-user-logout {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    width: 100%;
+    padding: 9px 10px;
+    border: none;
+    border-radius: 6px;
+    background: none;
+    color: var(--jf-danger);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: left;
+}
+.jf-user-logout:hover { background: var(--jf-danger-soft); }
+
+.jf-backdrop { display: none; }
+
+/* ---- Indikator HTMX ---- */
+.jf-htmx-indicator {
+    opacity: 0;
+    transition: opacity .2s ease;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--jf-border);
+    border-top-color: var(--jf-teal);
+    border-radius: 50%;
+    animation: jf-spin .7s linear infinite;
+    display: inline-block;
+}
+.jf-htmx-indicator.htmx-indicator, .htmx-request .jf-htmx-indicator { opacity: 1; }
+@keyframes jf-spin { to { transform: rotate(360deg); } }
+
+/* ---- Form: error field ---- */
+.jf-input.is-invalid { border-color: var(--jf-danger); }
+.jf-field-error { margin: 5px 0 0; font-size: .8rem; color: var(--jf-danger); }
+.jf-btn--block { display: block; width: 100%; max-width: 380px; }
+
+/* ---- Layout login ---- */
+.jf-auth-body { justify-content: center; background: var(--jf-bg); }
+.jf-auth-wrap {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto;
+    padding: 32px 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.jf-auth-brand { display: flex; justify-content: center; }
+.jf-auth-card { padding: 26px 24px; margin: 0; }
+.jf-auth-title { margin: 0 0 4px; font-size: 1.3rem; color: var(--jf-navy); }
+.jf-auth-sub { margin: 0 0 18px; color: var(--jf-text-muted); font-size: .9rem; }
+.jf-auth-foot { text-align: center; font-size: .8rem; color: var(--jf-text-muted); }
+.jf-auth-hint {
+    margin-top: 18px;
+    padding: 12px 14px;
+    background: var(--jf-bg);
+    border: 1px solid var(--jf-border);
+    border-radius: var(--jf-radius);
+    font-size: .8rem;
+}
+.jf-auth-hint p { margin: 0 0 6px; }
+.jf-auth-hint ul { margin: 0; padding-left: 18px; color: var(--jf-text-muted); }
+.jf-auth-hint code { font-family: var(--jf-mono); background: var(--jf-surface); padding: 1px 5px; border-radius: 4px; border: 1px solid var(--jf-border); }
+
+/* ---- Utilitas tambahan ---- */
+.jf-mb-0 { margin-bottom: 0; }
+.jf-mt-1 { margin-top: 12px; }
+
+/* ----------------- Responsif ----------------- */
+@media (max-width: 860px) {
+    .jf-menu-toggle { display: inline-flex; }
+    .jf-sidebar-close { display: inline-flex; }
+    .jf-user-meta { display: none; }
+
+    .jf-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 80;
+        transform: translateX(-100%);
+        transition: transform .22s ease;
+        box-shadow: 0 0 30px rgba(16, 24, 40, .18);
+    }
+    .jf-sidebar.is-open { transform: translateX(0); }
+
+    .jf-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, .4);
+        z-index: 70;
+    }
+}
+
+@media (max-width: 640px) {
+    .jf-container { padding: 0 14px; }
+    .jf-topbar { padding: 0 14px; }
+    .jf-input { max-width: 100%; }
+    .jf-btn--block { max-width: 100%; }
+}
+
+/* ==================================================================
+   Fase 4 — Modul bisnis: toolbar list, tabel + empty state, pagination,
+   form grid, halaman detail, varian & foto. Tetap tanpa gradient.
+   ================================================================== */
+
+/* ---- Toolbar daftar (filter kiri, aksi kanan) ---- */
+.jf-toolbar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+    margin-bottom: 16px;
+}
+.jf-filters { display: flex; align-items: flex-end; gap: 12px; flex-wrap: wrap; }
+.jf-field-inline { display: flex; flex-direction: column; gap: 4px; }
+.jf-field-inline .jf-label { margin-bottom: 0; font-size: .78rem; }
+.jf-field-inline .jf-input { max-width: 240px; padding: 7px 10px; }
+.jf-input--search { min-width: 220px; }
+
+/* ---- Tabel + pembungkus ---- */
+.jf-table-wrap { overflow-x: auto; }
+.jf-text-right { text-align: right; }
+.jf-sm { font-size: .8rem; }
+.jf-actions { display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.jf-inline { display: inline; }
+
+/* ---- Tombol varian ---- */
+.jf-btn--sm { padding: 5px 11px; font-size: .82rem; }
+.jf-btn--danger { background: var(--jf-danger); border-color: var(--jf-danger); color: #fff; }
+.jf-btn--danger:hover { filter: brightness(.95); }
+.jf-btn--ghost { background: transparent; border-color: var(--jf-border); color: var(--jf-text); }
+.jf-btn--ghost:hover { background: var(--jf-bg); }
+.jf-btn--disabled { opacity: .45; cursor: not-allowed; }
+a.jf-btn { text-decoration: none; }
+.jf-btn--icon { display: inline-flex; align-items: center; gap: 7px; }
+.jf-btn--icon .jf-icon { width: 16px; height: 16px; flex: 0 0 16px; }
+
+/* ---- Grafik laporan (SVG murni) ---- */
+.jf-chart-wrap { margin: 4px 0 18px; }
+.jf-chart { display: block; width: 100%; height: auto; }
+.jf-chart__label { fill: var(--jf-text-muted); font-size: 12px; font-weight: 500; font-family: inherit; }
+.jf-chart__value { fill: var(--jf-text); font-size: 12px; font-weight: 600; font-family: var(--jf-mono); }
+
+/* ---- Empty state ---- */
+.jf-empty { text-align: center; padding: 40px 18px; color: var(--jf-text-muted); }
+.jf-empty-title { margin: 0 0 6px; font-weight: 650; color: var(--jf-text); font-size: 1rem; }
+.jf-empty-text { margin: 0; font-size: .9rem; }
+
+/* ---- Pagination ---- */
+.jf-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--jf-border);
+    font-size: .85rem;
+    color: var(--jf-text-muted);
+}
+.jf-pagination-links { display: inline-flex; align-items: center; gap: 10px; }
+.jf-pagination-page { font-weight: 600; color: var(--jf-text); }
+
+/* ---- Form layout ---- */
+.jf-form-stack { max-width: 860px; }
+.jf-form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 20px; }
+.jf-form-actions { display: flex; gap: 10px; margin-top: 8px; }
+.jf-form-actions .jf-push { margin-left: auto; }
+.jf-inline-row { display: flex; align-items: flex-end; gap: 16px; flex-wrap: wrap; }
+.jf-inline-row .jf-field { margin-bottom: 0; }
+.jf-grow { flex: 1 1 200px; min-width: 160px; }
+.jf-req { color: var(--jf-danger); }
+.jf-hint { margin: 4px 0 0; font-size: .78rem; color: var(--jf-text-muted); }
+.jf-textarea { resize: vertical; max-width: 100%; font-family: inherit; }
+
+/* ---- Halaman detail ---- */
+.jf-detail-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+}
+.jf-dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 10px 24px; margin: 0; }
+.jf-dl-row { display: flex; flex-direction: column; gap: 2px; padding: 8px 0; border-bottom: 1px solid var(--jf-border); }
+.jf-dl-row dt { font-size: .76rem; text-transform: uppercase; letter-spacing: .04em; color: var(--jf-text-muted); font-weight: 700; }
+.jf-dl-row dd { margin: 0; }
+.jf-dl-caption { margin: 0 0 6px; font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: var(--jf-text-muted); }
+.jf-fieldset-plain { margin-top: 16px; }
+.jf-note { margin: 10px 0 0; color: var(--jf-text); white-space: normal; }
+
+/* ---- Varian: form harga inline ---- */
+.jf-price-form { display: inline-flex; align-items: center; gap: 6px; justify-content: flex-end; }
+.jf-input--price { width: 130px; max-width: 130px; padding: 5px 8px; text-align: right; }
+.jf-edit-row td { background: var(--jf-bg); }
+.jf-edit-row .jf-inline-row { padding: 6px 0; }
+
+/* ---- Foto referensi ---- */
+.jf-photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 14px; }
+.jf-photo { margin: 0; border: 1px solid var(--jf-border); border-radius: var(--jf-radius); overflow: hidden; background: var(--jf-surface); }
+.jf-photo img { display: block; width: 100%; height: 140px; object-fit: cover; }
+.jf-photo figcaption { display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 8px 10px; }
+.jf-photo-name { font-size: .78rem; color: var(--jf-text-muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 90px; }
+
+@media (max-width: 640px) {
+    .jf-form-grid { grid-template-columns: 1fr; }
+    .jf-toolbar { align-items: stretch; }
+    .jf-toolbar > .jf-btn { align-self: flex-start; }
+}
+
+/* ================= Fase 4 Batch B — Sales Order ================= */
+.jf-text-success { color: var(--jf-success); }
+.jf-text-warning { color: var(--jf-warning); }
+
+/* Editor item: header kolom + baris selaras */
+.jf-so-header, .jf-so-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 96px 140px 64px;
+    align-items: center;
+    gap: 10px;
+}
+.jf-so-header {
+    font-size: .76rem;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+    color: var(--jf-text-muted);
+    padding: 4px 0;
+    margin-top: 6px;
+}
+.jf-so-header .jf-so-qty, .jf-so-header .jf-so-line { text-align: right; }
+.jf-so-row { padding: 4px 0; }
+.jf-so-row .jf-so-line { font-variant-numeric: tabular-nums; color: var(--jf-text); }
+.jf-so-qty { width: 96px; text-align: right; }
+
+/* Ringkasan prakiraan (client) */
+.jf-so-summary {
+    border: 1px solid var(--jf-border);
+    border-radius: var(--jf-radius);
+    background: var(--jf-bg);
+    padding: 12px 14px;
+    display: grid;
+    gap: 6px;
+    max-width: 420px;
+    margin-left: auto;
+}
+.jf-so-sumrow { display: flex; justify-content: space-between; gap: 16px; font-variant-numeric: tabular-nums; }
+.jf-so-sumrow span:first-child { color: var(--jf-text-muted); }
+.jf-so-dp { border-top: 1px dashed var(--jf-border); padding-top: 6px; margin-top: 2px; }
+.jf-so-dp em { font-style: normal; color: var(--jf-text-muted); font-size: .82rem; margin-left: 4px; }
+
+/* Ringkasan nilai pada halaman detail */
+.jf-so-totals { max-width: 460px; margin-left: auto; }
+.jf-so-totals .jf-dl-row { display: flex; justify-content: space-between; gap: 24px; padding: 4px 0; }
+.jf-so-totals dt { color: var(--jf-text-muted); }
+.jf-so-totals dd { margin: 0; font-variant-numeric: tabular-nums; }
+.jf-so-grand { border-top: 1px solid var(--jf-border); margin-top: 4px; padding-top: 8px; font-weight: 600; }
+
+@media (max-width: 640px) {
+    .jf-so-header { display: none; }
+    .jf-so-row { grid-template-columns: 1fr 84px; grid-auto-flow: dense; }
+    .jf-so-row .jf-so-line { grid-column: 1 / -1; text-align: left; }
+    .jf-so-summary, .jf-so-totals { max-width: none; margin-left: 0; }
+}
+
+/* ================= Fase 4 Batch C — Production Order ================= */
+/* Bar progres (daftar + papan tahap) */
+.jf-progress {
+    height: 8px;
+    background: var(--jf-border);
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 6px 0 2px;
+}
+.jf-progress__bar {
+    display: block;
+    height: 100%;
+    background: var(--jf-teal);
+    border-radius: 999px;
+    transition: width .25s ease;
+}
+.jf-progress--lg { height: 12px; margin: 12px 0 4px; }
+
+/* Daftar tahap */
+.jf-stage-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; counter-reset: tahap; }
+.jf-stage { border: 1px solid var(--jf-border); border-radius: var(--jf-radius); background: var(--jf-surface); }
+.jf-stage.is-done { border-color: var(--jf-success); background: var(--jf-success-soft); }
+.jf-stage--readonly { padding: 12px 14px; }
+.jf-stage-form { padding: 12px 14px; display: grid; gap: 10px; }
+
+.jf-stage-head { display: flex; align-items: center; gap: 10px; }
+.jf-stage-pos {
+    flex: 0 0 auto;
+    width: 24px; height: 24px;
+    display: inline-flex; align-items: center; justify-content: center;
+    border-radius: 50%;
+    background: var(--jf-navy); color: #fff;
+    font-size: .78rem; font-weight: 600;
+}
+.jf-stage.is-done .jf-stage-pos { background: var(--jf-success); }
+.jf-stage-name { font-weight: 600; margin-right: auto; }
+
+.jf-stage-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+.jf-stage-times { display: flex; gap: 8px; flex-wrap: wrap; }
+.jf-stage-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+
+@media (max-width: 720px) {
+    .jf-stage-grid { grid-template-columns: 1fr; }
+}
+
+/* ================= Fase 4 Batch D — Bahan Baku & Stok ================= */
+/* Kode bahan / angka stok rata kiri monospace agar kolom sejajar */
+.jf-mono {
+    font-family: ui-monospace, "SFMono-Regular", "Cascadia Mono", "Consolas", monospace;
+    font-variant-numeric: tabular-nums;
+    letter-spacing: .01em;
+}
+
+/* Checkbox inline pada toolbar filter (sejajar dengan control lain) */
+.jf-field-inline--check { align-self: end; }
+.jf-check {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: .88rem;
+    color: var(--jf-text);
+    cursor: pointer;
+    user-select: none;
+    padding: 8px 2px;
+    white-space: nowrap;
+}
+.jf-check input[type="checkbox"] {
+    width: 16px; height: 16px;
+    margin: 0;
+    accent-color: var(--jf-teal);
+    cursor: pointer;
+}
+
+/* Riwayat pergerakan: kolom saldo sebelum→sesudah lebih lega */
+.jf-table td.jf-mono { white-space: nowrap; }
+
+/* ================= Fase 4 Batch E1 — Quality Control ================= */
+/* Baris jumlah pemeriksaan: diperiksa / lolos / gagal sejajar */
+.jf-form-grid--qc-qty { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 640px) {
+    .jf-form-grid--qc-qty { grid-template-columns: 1fr; }
+}
+
+/* ================= Fase 4 Batch F — Laporan ================= */
+/* Hub: kartu tautan laporan */
+.jf-reports {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+}
+.jf-report-card {
+    display: block;
+    background: var(--jf-surface);
+    border: 1px solid var(--jf-border);
+    border-radius: var(--jf-radius);
+    box-shadow: var(--jf-shadow-sm);
+    padding: 18px 20px;
+    text-decoration: none;
+    color: inherit;
+    transition: border-color .15s ease, transform .05s ease;
+}
+.jf-report-card:hover { border-color: var(--jf-teal); }
+.jf-report-card__title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 650;
+    color: var(--jf-navy);
+    margin-bottom: 6px;
+}
+.jf-report-card__desc { font-size: .85rem; color: var(--jf-text-muted); margin: 0; }
+
+/* Strip KPI */
+.jf-kpis {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+    margin-bottom: 18px;
+}
+.jf-kpi {
+    background: var(--jf-surface);
+    border: 1px solid var(--jf-border);
+    border-left: 3px solid var(--jf-teal);
+    border-radius: var(--jf-radius);
+    padding: 14px 16px;
+}
+.jf-kpi__label { font-size: .74rem; text-transform: uppercase; letter-spacing: .03em; color: var(--jf-text-muted); }
+.jf-kpi__value { font-size: 1.35rem; font-weight: 700; color: var(--jf-navy); margin-top: 4px; }
+.jf-kpi__hint { font-size: .74rem; color: var(--jf-text-muted); margin-top: 2px; }
+
+/* Fase 4 Batch G — Dashboard: KPI sebagai tautan tindak lanjut */
+a.jf-kpi {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: box-shadow .15s ease, transform .15s ease, border-color .15s ease;
+}
+a.jf-kpi:hover {
+    box-shadow: 0 2px 10px rgba(15, 32, 61, .08);
+    transform: translateY(-1px);
+    border-color: var(--jf-teal);
+}
+.jf-kpi--alert { border-left-color: var(--jf-danger); }
+.jf-kpi--alert .jf-kpi__value { color: var(--jf-danger); }
+.jf-mb-0 { margin-bottom: 0; }
+
+@media (max-width: 640px) {
+    .jf-kpis { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+/* Kontrol periode + ekspor */
+.jf-report-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+.jf-report-bar .jf-field-inline { margin: 0; }
+.jf-report-bar__spacer { flex: 1 1 auto; }
+@media (max-width: 640px) {
+    .jf-reports { grid-template-columns: 1fr; }
+}
+
+/* ==================================================================
+   Fase 5 Batch L — Header/sidebar gaya shadcn + command palette global.
+   Pemanfaatan ulang token warna yang ada (teal/navy/neutral/status);
+   tidak memperkenalkan hue baru — hanya struktur, spasi, radius, bayangan.
+   ================================================================== */
+
+/* Pemicu pencarian ala shadcn (terlihat seperti input + kbd hint) */
+.jf-search-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    height: 38px;
+    min-width: 280px;
+    padding: 0 10px;
+    border: 1px solid var(--jf-border);
+    border-radius: 8px;
+    background: var(--jf-surface);
+    color: var(--jf-text-muted);
+    font: inherit;
+    font-size: .85rem;
+    cursor: pointer;
+    transition: border-color .15s ease, background-color .15s ease;
+}
+.jf-search-trigger:hover { background: var(--jf-bg); }
+.jf-search-trigger:focus-visible { outline: 2px solid var(--jf-teal); outline-offset: 1px; }
+.jf-search-trigger .jf-icon { color: var(--jf-text-muted); }
+.jf-search-trigger__text { flex: 1; text-align: left; }
+
+.jf-kbd {
+    font-family: var(--jf-mono);
+    font-size: .72rem;
+    line-height: 1;
+    color: var(--jf-text-muted);
+    background: var(--jf-bg);
+    border: 1px solid var(--jf-border);
+    border-radius: 5px;
+    padding: 3px 6px;
+    white-space: nowrap;
+}
+
+/* Overlay + panel palette */
+.jf-cmdk { display: inline-flex; }
+.jf-cmdk-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 120;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 12vh 16px 16px;
+    background: rgba(15, 23, 42, .45);
+}
+.jf-cmdk-panel {
+    width: min(560px, 100%);
+    display: flex;
+    flex-direction: column;
+    background: var(--jf-surface);
+    border: 1px solid var(--jf-border);
+    border-radius: 12px;
+    box-shadow: 0 16px 48px rgba(16, 24, 40, .22);
+    overflow: hidden;
+}
+.jf-cmdk-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--jf-border);
+}
+.jf-cmdk-search .jf-icon { color: var(--jf-text-muted); flex: 0 0 18px; }
+.jf-cmdk-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--jf-text);
+    font: inherit;
+    font-size: .95rem;
+    padding: 0;
+    max-width: none;
+}
+
+.jf-cmdk-list {
+    max-height: 340px;
+    overflow-y: auto;
+    padding: 6px;
+}
+.jf-cmdk-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px 10px;
+    border-radius: 8px;
+    color: var(--jf-text);
+    text-decoration: none;
+    font-size: .9rem;
+}
+.jf-cmdk-item .jf-icon { flex: 0 0 20px; color: var(--jf-text-muted); }
+.jf-cmdk-item__label { font-weight: 500; }
+.jf-cmdk-item__group {
+    margin-left: auto;
+    font-size: .72rem;
+    color: var(--jf-text-muted);
+}
+.jf-cmdk-item.is-hidden { display: none; }
+.jf-cmdk-item.is-active {
+    background: var(--jf-teal-soft);
+    color: var(--jf-teal);
+}
+.jf-cmdk-item.is-active .jf-icon { color: var(--jf-teal); }
+.jf-cmdk-item.is-active .jf-cmdk-item__group { color: var(--jf-teal); }
+
+.jf-cmdk-empty {
+    margin: 0;
+    padding: 22px 16px;
+    text-align: center;
+    color: var(--jf-text-muted);
+    font-size: .88rem;
+}
+
+.jf-cmdk-foot {
+    display: flex;
+    gap: 16px;
+    padding: 9px 14px;
+    border-top: 1px solid var(--jf-border);
+    font-size: .72rem;
+    color: var(--jf-text-muted);
+}
+.jf-cmdk-foot span { display: inline-flex; align-items: center; gap: 5px; }
+
+@media (max-width: 860px) {
+    .jf-search-trigger { min-width: 0; width: 38px; justify-content: center; }
+    .jf-search-trigger__text, .jf-search-trigger .jf-kbd { display: none; }
+}
+
+@media (max-width: 640px) {
+    .jf-cmdk-overlay { padding-top: 8vh; }
+}

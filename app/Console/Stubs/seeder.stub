@@ -1,0 +1,22 @@
+<?php
+
+declare(strict_types=1);
+
+use App\Core\Seeder;
+
+/**
+ * Seeder {{class}}.
+ *
+ * HANYA data demo FIKTIF (aturan §7 DOC). Bila dirancang untuk dijalankan
+ * berulang, mulai run() dengan truncate() atau gunakan insertIfMissing()
+ * agar idempoten.
+ */
+class {{class}} extends Seeder
+{
+    public function run(): void
+    {
+        // TODO: contoh
+        // $this->truncate('customers');
+        // $this->insert('customers', ['nama' => 'Toko Seragam Maju', 'telepon' => '0812-0000-0000']);
+    }
+}

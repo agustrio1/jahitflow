@@ -1,0 +1,1 @@
+# Folder migration. File dibuat lewat `php bin/console make:migration <nama>`.

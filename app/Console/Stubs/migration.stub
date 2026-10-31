@@ -1,0 +1,31 @@
+<?php
+
+declare(strict_types=1);
+
+use App\Core\Migration;
+
+/**
+ * Migration {{class}}.
+ *
+ * up() = terapkan perubahan struktur; down() = kembalikan.
+ * Gunakan DECIMAL untuk uang, InnoDB, utf8mb4, dan FK + index sesuai
+ * kebutuhan query (aturan §7 DOC). Jangan mengedit migration yang sudah
+ * diterapkan di lingkungan berdata — buat migration baru.
+ */
+class {{class}} extends Migration
+{
+    public function up(): void
+    {
+        // TODO: contoh
+        // $this->execute('CREATE TABLE `contoh` (
+        //     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+        //     nama VARCHAR(120) NOT NULL,
+        //     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+        // ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4');
+    }
+
+    public function down(): void
+    {
+        // TODO: contoh -> $this->execute('DROP TABLE IF EXISTS `contoh`');
+    }
+}

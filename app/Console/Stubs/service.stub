@@ -1,0 +1,16 @@
+<?php
+
+declare(strict_types=1);
+
+namespace {{namespace}};
+
+/**
+ * Business logic {{class}}.
+ *
+ * Batas unit transaksi multi-perubahan data berada di sini, dibungkus
+ * Database::transaction(). Controller memanggil service; service memanggil
+ * repository — bukan sebaliknya.
+ */
+final class {{class}}
+{
+}

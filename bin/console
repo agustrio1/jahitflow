@@ -1,0 +1,18 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+/**
+ * JahitFlow console — entri CLI internal.
+ *
+ * Pemakaian:
+ *   php bin/console list
+ *   php bin/console help <command>
+ */
+
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+$kernel = new App\Console\Kernel(dirname(__DIR__));
+
+exit($kernel->run($argv));
